@@ -9,11 +9,9 @@ class note {
         return '<div class="row" id = "' + this.id + '"><input type="checkbox" class="checkbox col-1"' + (this.checked ? 'checked' : '') + '><div class="col-4 to-do-label">' + this.text + "</div><div class='col-2'><button class='primary edit'>edit</button></div><div class='col-2'><button class='primary delete'>delete</button></div></div>";
     }
 }
-// test notes
-var thing1 = new note("yay!", 1, true);
-var thing2 = new note("horay!", 2);
-var thing3 = new note("what?", 3)
-var todo_list = [thing1, thing2, thing3];
+
+
+var todo_list = [];
 function all() {
     removeListeners();
     $(".list").text('');
@@ -88,7 +86,6 @@ function addListeners() {
         var selected_parent = $(this).parent().parent();
         var old_label = $(selected_parent).find(".to-do-label").text();
         var old_id = $(selected_parent).attr('id');
-        alert(old_label);
         selected_parent.text("");
         selected_parent.html('<div class="row" id = "' + old_id + '"><div class="col-4"></div><input type = "text" class="to-do-label" value ="'+ old_label + '">' + "</div><div class='col-2'><button class='primary save'>save</button></div></div>");
         removeListeners();
